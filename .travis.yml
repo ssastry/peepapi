@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: h8HfBIFFiw0sCWoFjR+wkhLapPU+BrP8dWjPoV7qGms9uvZxyrAkY35IOkzuw8MuDSytMAro1PsLczYmgX9ASPfcK2XauTIRzPJLvkdROAchlqjh274XHlksuEqQQXiL768AvW5YKSky/5ZUIoVxLKSeqdoyE9lvNKjepAOCqAgESCu7WFOanDpvUIdXS24Y9iwy5kxRm+t2DgJFkARfXBpzl+YpdOz6cDyPIQWa+zQimmYRXWMOGUy15lDtjp8+RFwLdGho323egcpCa/xiSYS9inYEUEI0qgEatZ3e9j1F6LbeX+z/uSmqI7pawLA6s2PG98vMr9lGVwfEpzT+8FnsK9DClqER33GSa40mSyeeLBSyd0OWH1vhW1ttYm8ayDSxjoTydmrSvDjbe3k8smqh7fKUsx7fR15K/DLrg9IoDoYXex4OTkvgeAPxe1eVfNEGDSfb2ugUmG/q8TeKO4KsSTQEoMb5kCg2mXS6KnoMZZwAgOcVPBqfkIh+UQa1cCGVUrc9vqNaPMVI6spTvu+hxV6fVG0eUdDMHhfhZUflWiljbHJjcd6VmRHTNMmNT3aSOsQ4vmF2dCkbMkOiJj2BCZkicoM51/mclIWL4SggaGImgceX/WDjtiFGnQtDdTdD7s1VvnYFM2/931sTvHKl4UfkGR4owoJ292AwffQ=
+  app: hidden-depths-85536
+  on:
+    repo: ssastry/peepapi
