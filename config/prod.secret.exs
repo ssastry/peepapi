@@ -9,12 +9,12 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or you later on).
 config :peepchat, Peepchat.Endpoint,
-  secret_key_base: "PKFqKv8p5RgRp9BuMo0CNiRs7Bahz8aGMt+RUUiwnk5xqdl505YfDCPz6s+WRUn3"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Configure your database
 config :peepchat, Peepchat.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("DATABASE_USERNAME"),,
+  password: System.get_env("DATABASE_PASSWORD"),
   database: "peepchat_prod",
   pool_size: 20
